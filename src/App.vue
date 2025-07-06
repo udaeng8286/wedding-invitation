@@ -8,6 +8,16 @@
 
       <!-- 다른 컴포넌트들도 여기에 추가 예정 -->
     </div>
+
+    <!-- 오디오 컨트롤 -->
+    <div
+      class="audio-control"
+      :class="{ 'audio-on': isPlaying }"
+      @click="toggleAudio"
+    >
+      <span v-if="isPlaying">🔊</span>
+      <span v-else>🔇</span>
+    </div>
   </div>
 </template>
 
@@ -116,66 +126,6 @@ export default defineComponent({
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;500&display=swap");
-
-:root {
-  --primary-color: #e0c9c1;
-  --text-color: #333;
-  --background-color: #fff9f5;
-  --accent-color: #6d8b74;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Noto Serif KR", serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
-.wedding-app {
-  max-width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-
-.sections-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.audio-control {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--primary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.audio-control:hover,
-.audio-control.audio-on {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-@media (min-width: 768px) {
-  .wedding-app {
-    max-width: 480px; /* 모바일 청첩장 스타일 유지 */
-  }
-}
+/* main.css를 import */
+@import "./assets/styles/main.css";
 </style>

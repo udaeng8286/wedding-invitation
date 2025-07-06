@@ -8,8 +8,8 @@
           <span class="ampersand">&</span>
           <span class="bride-name">{{ coupleNames.brideName }}</span>
         </h1>
-        <p class="wedding-date">2025.05.17</p>
-        <p class="wedding-location">토요일 오후 1시 | 호텔 그랜드 볼룸</p>
+        <p class="wedding-date">2025.11.09</p>
+        <p class="wedding-location">일요일 오후 1시 | 그랜드컨벤션웨딩</p>
         <div class="scroll-indicator">
           <span>↓</span>
           <p>스크롤하여 더 보기</p>
@@ -77,7 +77,7 @@ export default defineComponent({
 
 .couple-names {
   font-family: "Cormorant Garamond", serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 300;
   letter-spacing: 4px;
   margin-bottom: 1.5rem;
@@ -105,7 +105,6 @@ export default defineComponent({
 
 .scroll-indicator {
   position: absolute;
-  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 2s infinite;
@@ -115,7 +114,7 @@ export default defineComponent({
 
 .scroll-indicator span {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 5px;
 }
 
@@ -136,20 +135,6 @@ export default defineComponent({
   }
   60% {
     transform: translateY(-5px) translateX(-50%);
-  }
-}
-
-@media (min-width: 768px) {
-  .couple-names {
-    font-size: 3rem;
-  }
-
-  .wedding-date {
-    font-size: 1.6rem;
-  }
-
-  .wedding-location {
-    font-size: 1rem;
   }
 }
 </style>
