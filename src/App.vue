@@ -2,26 +2,38 @@
   <div class="wedding-app">
     <div class="sections-container">
       <MainCover :coupleNames="{ groomName: 'JUNWOO', brideName: 'HOYEON' }" />
+
+      <!-- 계좌 컴포넌트 - URL 파라미터에 따라 조건부 렌더링 -->
+      <BankAccount v-if="showBankAccount" :accounts="bankAccounts" />
+
+      <!-- 다른 컴포넌트들도 여기에 추가 예정 -->
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from "vue";
+import { defineComponent, ref, onMounted, computed } from "vue";
 import MainCover from "./components/MainCover.vue";
+import BankAccount from "./components/BankAccount.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     MainCover,
+    BankAccount,
   },
   setup() {
     const bgMusic = ref<HTMLAudioElement | null>(null);
     const isPlaying = ref(false);
 
+    // URL 파라미터 확인해서 계좌 컴포넌트 표시 여부 결정
+    const showBankAccount = computed(() => {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get("account") === "true";
+    });
+
     const toggleAudio = () => {
       if (!bgMusic.value) return;
-
       if (isPlaying.value) {
         bgMusic.value.pause();
       } else {
@@ -78,8 +90,16 @@ export default defineComponent({
 
     // 계좌 정보
     const bankAccounts = [
-      { owner: "신랑 민호", bank: "신한은행", accountNumber: "110-123-456789" },
-      { owner: "신부 하윤", bank: "국민은행", accountNumber: "123-45-6789012" },
+      {
+        owner: "신랑 박준우",
+        bank: "신한은행",
+        accountNumber: "110-123-456789",
+      },
+      {
+        owner: "신부 류호연",
+        bank: "국민은행",
+        accountNumber: "123-45-6789012",
+      },
     ];
 
     return {
@@ -89,6 +109,7 @@ export default defineComponent({
       galleryImages,
       weddingLocation,
       bankAccounts,
+      showBankAccount,
     };
   },
 });

@@ -4,7 +4,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["vite/client"], // Remove "vue/ref-macros" from here
+    "types": ["vite/client"],
     "moduleResolution": "node"
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
