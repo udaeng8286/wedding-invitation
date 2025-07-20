@@ -35,7 +35,7 @@
 
     <!-- 배경 음악 -->
     <audio ref="bgMusic" loop>
-      <source src="./assets/audio/wedding-bgm.mp3" type="audio/mpeg" />
+      <source src="./assets/audio/bgm.mp3" type="audio/mpeg" />
     </audio>
   </div>
 </template>
