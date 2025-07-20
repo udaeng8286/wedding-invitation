@@ -16,8 +16,8 @@
       <!-- 갤러리 -->
       <Gallery />
 
-      <!-- 계좌 컴포넌트 - URL 파라미터에 따라 조건부 렌더링 -->
-      <BankAccount v-if="showBankAccount" :accounts="bankAccounts" />
+      <!-- 계좌 컴포넌트 -->
+      <BankAccount />
 
       <!-- 마무리 인사 -->
       <Closing />
@@ -53,12 +53,6 @@ import BankAccount from "./components/BankAccount.vue";
 const bgMusic = ref<HTMLAudioElement | null>(null);
 const isPlaying = ref(false);
 
-// URL 파라미터 확인해서 계좌 컴포넌트 표시 여부 결정
-const showBankAccount = computed(() => {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get("account") === "true";
-});
-
 const toggleAudio = () => {
   if (!bgMusic.value) return;
   if (isPlaying.value) {
@@ -86,28 +80,6 @@ onMounted(() => {
     { once: true }
   );
 });
-
-// 결혼식 장소 정보
-const weddingLocation = {
-  name: "호텔 그랜드 볼룸",
-  address: "서울특별시 강남구 테헤란로 123",
-  lat: 37.5665,
-  lng: 126.978,
-};
-
-// 계좌 정보
-const bankAccounts = [
-  {
-    owner: "신랑 박준우",
-    bank: "신한은행",
-    accountNumber: "110-123-456789",
-  },
-  {
-    owner: "신부 류호연",
-    bank: "국민은행",
-    accountNumber: "123-45-6789012",
-  },
-];
 </script>
 
 <style>

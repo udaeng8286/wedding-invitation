@@ -8,8 +8,8 @@
             <span class="couple-name">박남일</span>
             <span class="flower-icon"> | </span>
             <span class="korean-name">권혜숙</span>
+            <span class="relation">의 아들</span>
           </div>
-          <div class="relation">의 아들</div>
         </div>
 
         <div class="role-section">
@@ -30,8 +30,8 @@
             <span class="couple-name">류정원</span>
             <span class="flower-icon"> | </span>
             <span class="korean-name">최옥자</span>
+            <span class="relation">의 딸</span>
           </div>
-          <div class="relation">의 딸</div>
         </div>
 
         <div class="role-section">
@@ -348,7 +348,7 @@ const makeCall = (phoneNumber: string) => {
 }
 
 .contact-btn {
-  background: linear-gradient(135deg, #e2a543 0%, #e2a543 100%);
+  background: linear-gradient(135deg, #d4b5ad 0%, #d4b5ad 100%);
   color: white;
   border: none;
   padding: 15px 30px;

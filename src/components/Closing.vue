@@ -133,39 +133,6 @@ export default defineComponent({
   letter-spacing: 1px;
 }
 
-/* 배경 장식 효과 */
-.closing-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--primary-color) 50%,
-    transparent 100%
-  );
-}
-
-.closing-section::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    #ddd 50%,
-    transparent 100%
-  );
-}
-
 @media (max-width: 375px) {
   .closing-section {
     padding: 50px 15px 30px;

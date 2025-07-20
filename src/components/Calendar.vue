@@ -2,13 +2,12 @@
   <section class="calendar-section">
     <div class="section-header">
       <h2>Wedding Day</h2>
-      <p class="wedding-datetime">2025년 11월 9일 일요일 | 오후 12시</p>
-      <p class="wedding-venue">그랜드컨벤션웨딩</p>
+      <p class="wedding-datetime">Saturday, November 9, 2025 | PM 12:00</p>
     </div>
 
     <div class="calendar-container">
       <div class="calendar-header">
-        <h3>{{ currentMonth }}월 {{ currentYear }}</h3>
+        <h3>November {{ currentYear }}</h3>
       </div>
 
       <div class="calendar-grid">
@@ -56,105 +55,87 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, onMounted, onUnmounted, computed } from "vue";
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted, computed } from "vue";
 
-export default defineComponent({
-  name: "Calendar",
-  setup() {
-    const weddingDate = new Date(2025, 10, 9, 12, 0, 0); // 2025년 11월 9일 오후 12시
-    const currentTime = ref(new Date());
-    let interval: number | null = null;
+const weddingDate = new Date(2025, 10, 9, 12, 0, 0); // 2025년 11월 9일 오후 12시
+const currentTime = ref(new Date());
+let interval: number | null = null;
 
-    const dayHeaders = ["일", "월", "화", "수", "목", "금", "토"];
+const dayHeaders = ["일", "월", "화", "수", "목", "금", "토"];
 
-    const currentYear = computed(() => weddingDate.getFullYear());
-    const currentMonth = computed(() => weddingDate.getMonth() + 1);
+const currentYear = computed(() => weddingDate.getFullYear());
 
-    const calendarDates = computed(() => {
-      const year = weddingDate.getFullYear();
-      const month = weddingDate.getMonth();
-      const firstDay = new Date(year, month, 1);
-      const lastDay = new Date(year, month + 1, 0);
-      const startDate = new Date(firstDay);
-      startDate.setDate(startDate.getDate() - firstDay.getDay());
+const calendarDates = computed(() => {
+  const year = weddingDate.getFullYear();
+  const month = weddingDate.getMonth();
+  const firstDay = new Date(year, month, 1);
+  const startDate = new Date(firstDay);
+  startDate.setDate(startDate.getDate() - firstDay.getDay());
 
-      const dates = [];
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
+  const dates = [];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
 
-      for (let i = 0; i < 42; i++) {
-        const date = new Date(startDate);
-        date.setDate(startDate.getDate() + i);
+  for (let i = 0; i < 42; i++) {
+    const date = new Date(startDate);
+    date.setDate(startDate.getDate() + i);
 
-        const dateObj = {
-          date: date.getDate(),
-          isWeddingDay: date.getTime() === new Date(2025, 10, 9).getTime(),
-          isOtherMonth: date.getMonth() !== month,
-          isToday: date.getTime() === today.getTime(),
-        };
-
-        dates.push(dateObj);
-      }
-
-      return dates;
-    });
-
-    const countdown = computed(() => {
-      const now = currentTime.value.getTime();
-      const wedding = weddingDate.getTime();
-      const diff = wedding - now;
-
-      if (diff <= 0) {
-        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      return { days, hours, minutes, seconds };
-    });
-
-    const countdownMessage = computed(() => {
-      const total =
-        countdown.value.days +
-        countdown.value.hours +
-        countdown.value.minutes +
-        countdown.value.seconds;
-      if (total <= 0) {
-        return "🎉 결혼식이 진행 중입니다! 🎉";
-      }
-      return `준우 ♥  호연의 결혼식이 ${countdown.value.days}일 남았습니다`;
-    });
-
-    const updateTime = () => {
-      currentTime.value = new Date();
+    const dateObj = {
+      date: date.getDate(),
+      isWeddingDay: date.getTime() === new Date(2025, 10, 9).getTime(),
+      isOtherMonth: date.getMonth() !== month,
+      isToday: date.getTime() === today.getTime(),
     };
 
-    onMounted(() => {
-      updateTime();
-      interval = setInterval(updateTime, 1000);
-    });
+    dates.push(dateObj);
+  }
 
-    onUnmounted(() => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    });
+  return dates;
+});
 
-    return {
-      dayHeaders,
-      currentYear,
-      currentMonth,
-      calendarDates,
-      countdown,
-      countdownMessage,
-    };
-  },
+const countdown = computed(() => {
+  const now = currentTime.value.getTime();
+  const wedding = weddingDate.getTime();
+  const diff = wedding - now;
+
+  if (diff <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  return { days, hours, minutes, seconds };
+});
+
+const countdownMessage = computed(() => {
+  const total =
+    countdown.value.days +
+    countdown.value.hours +
+    countdown.value.minutes +
+    countdown.value.seconds;
+  if (total <= 0) {
+    return "🎉 결혼식이 진행 중입니다! 🎉";
+  }
+  return `준우 ♥ 호연의 결혼식이 ${countdown.value.days}일 남았습니다`;
+});
+
+const updateTime = () => {
+  currentTime.value = new Date();
+};
+
+onMounted(() => {
+  updateTime();
+  interval = setInterval(updateTime, 1000);
+});
+
+onUnmounted(() => {
+  if (interval) {
+    clearInterval(interval);
+  }
 });
 </script>
 
@@ -175,16 +156,10 @@ export default defineComponent({
 }
 
 .wedding-datetime {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text-color);
-  margin-bottom: 5px;
-  font-weight: 500;
-}
-
-.wedding-venue {
-  font-size: 1rem;
-  color: #666;
   margin-bottom: 40px;
+  font-weight: 400;
 }
 
 .calendar-container {
@@ -260,7 +235,7 @@ export default defineComponent({
 .countdown-display {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
@@ -269,9 +244,13 @@ export default defineComponent({
   background: white;
   border-radius: 12px;
   padding: 15px 10px;
-  min-width: 65px;
+  width: 70px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border: 2px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .countdown-item .count {
@@ -306,16 +285,20 @@ export default defineComponent({
   }
 
   .countdown-display {
-    gap: 10px;
+    gap: 8px;
   }
 
   .countdown-item {
-    min-width: 55px;
+    width: 60px;
     padding: 12px 8px;
   }
 
   .countdown-item .count {
     font-size: 1.3rem;
+  }
+
+  .countdown-item .label {
+    font-size: 0.6rem;
   }
 }
 </style>
