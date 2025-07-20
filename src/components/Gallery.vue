@@ -55,8 +55,8 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, onMounted, onUnmounted } from "vue";
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
 
 interface GalleryImage {
   id: number;
@@ -64,104 +64,121 @@ interface GalleryImage {
   alt: string;
 }
 
-export default defineComponent({
-  name: "Gallery",
-  setup() {
-    const showLightbox = ref(false);
-    const currentImageIndex = ref(0);
+const showLightbox = ref(false);
+const currentImageIndex = ref(0);
 
-    // 임시 갤러리 이미지들 (실제로는 props로 받거나 API에서 가져올 수 있음)
-    const galleryImages = ref<GalleryImage[]>([
-      {
-        id: 1,
-        src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=600&fit=crop",
-        alt: "웨딩 사진 1",
-      },
-      {
-        id: 2,
-        src: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=400&fit=crop",
-        alt: "웨딩 사진 2",
-      },
-      {
-        id: 3,
-        src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=500&fit=crop",
-        alt: "웨딩 사진 3",
-      },
-      {
-        id: 4,
-        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop",
-        alt: "웨딩 사진 4",
-      },
-      {
-        id: 5,
-        src: "https://images.unsplash.com/photo-1594736797933-d0ac1b65a0b4?w=400&h=600&fit=crop",
-        alt: "웨딩 사진 5",
-      },
-      {
-        id: 6,
-        src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=400&h=400&fit=crop",
-        alt: "웨딩 사진 6",
-      },
-    ]);
+// 이미지를 import로 직접 가져오기
+import photo1 from "../assets/images/photo1.jpeg";
+import photo2 from "../assets/images/photo2.jpeg";
+import photo3 from "../assets/images/photo3.jpeg";
+import photo4 from "../assets/images/photo4.jpeg";
+import photo5 from "../assets/images/photo5.jpeg";
+import photo6 from "../assets/images/photo6.jpeg";
+import photo7 from "../assets/images/photo7.jpeg";
+import photo8 from "../assets/images/photo8.jpeg";
+import photo9 from "../assets/images/photo9.jpeg";
+import photo10 from "../assets/images/photo10.jpeg";
 
-    const openLightbox = (index: number) => {
-      currentImageIndex.value = index;
-      showLightbox.value = true;
-      document.body.style.overflow = "hidden";
-    };
-
-    const closeLightbox = () => {
-      showLightbox.value = false;
-      document.body.style.overflow = "auto";
-    };
-
-    const nextImage = () => {
-      if (currentImageIndex.value < galleryImages.value.length - 1) {
-        currentImageIndex.value++;
-      }
-    };
-
-    const prevImage = () => {
-      if (currentImageIndex.value > 0) {
-        currentImageIndex.value--;
-      }
-    };
-
-    const handleKeydown = (event: KeyboardEvent) => {
-      if (!showLightbox.value) return;
-
-      switch (event.key) {
-        case "Escape":
-          closeLightbox();
-          break;
-        case "ArrowLeft":
-          prevImage();
-          break;
-        case "ArrowRight":
-          nextImage();
-          break;
-      }
-    };
-
-    onMounted(() => {
-      document.addEventListener("keydown", handleKeydown);
-    });
-
-    onUnmounted(() => {
-      document.removeEventListener("keydown", handleKeydown);
-      document.body.style.overflow = "auto";
-    });
-
-    return {
-      galleryImages,
-      showLightbox,
-      currentImageIndex,
-      openLightbox,
-      closeLightbox,
-      nextImage,
-      prevImage,
-    };
+// 갤러리 이미지들
+const galleryImages = ref<GalleryImage[]>([
+  {
+    id: 1,
+    src: photo1,
+    alt: "Wedding photo 1",
   },
+  {
+    id: 2,
+    src: photo2,
+    alt: "Wedding photo 2",
+  },
+  {
+    id: 3,
+    src: photo3,
+    alt: "Wedding photo 3",
+  },
+  {
+    id: 4,
+    src: photo4,
+    alt: "Wedding photo 4",
+  },
+  {
+    id: 5,
+    src: photo5,
+    alt: "Wedding photo 5",
+  },
+  {
+    id: 6,
+    src: photo6,
+    alt: "Wedding photo 6",
+  },
+  {
+    id: 7,
+    src: photo7,
+    alt: "Wedding photo 7",
+  },
+  {
+    id: 8,
+    src: photo8,
+    alt: "Wedding photo 8",
+  },
+  {
+    id: 9,
+    src: photo9,
+    alt: "Wedding photo 9",
+  },
+  {
+    id: 10,
+    src: photo10,
+    alt: "Wedding photo 10",
+  },
+]);
+
+const openLightbox = (index: number) => {
+  currentImageIndex.value = index;
+  showLightbox.value = true;
+  document.body.style.overflow = "hidden";
+};
+
+const closeLightbox = () => {
+  showLightbox.value = false;
+  document.body.style.overflow = "auto";
+};
+
+const nextImage = () => {
+  if (currentImageIndex.value < galleryImages.value.length - 1) {
+    currentImageIndex.value++;
+  }
+};
+
+const prevImage = () => {
+  if (currentImageIndex.value > 0) {
+    currentImageIndex.value--;
+  }
+};
+
+const handleKeydown = (event: KeyboardEvent) => {
+  if (!showLightbox.value) return;
+
+  switch (event.key) {
+    case "Escape":
+      closeLightbox();
+      break;
+    case "ArrowLeft":
+      prevImage();
+      break;
+    case "ArrowRight":
+      nextImage();
+      break;
+  }
+};
+
+onMounted(() => {
+  document.addEventListener("keydown", handleKeydown);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("keydown", handleKeydown);
+  document.body.style.overflow = "auto";
 });
 </script>
 
@@ -196,7 +213,7 @@ export default defineComponent({
   gap: 15px;
   max-width: 400px;
   margin: 0 auto;
-  grid-template-rows: repeat(4, 120px);
+  grid-template-rows: repeat(6, 120px);
 }
 
 /* 그리드 레이아웃 패턴 */
@@ -228,6 +245,26 @@ export default defineComponent({
 .gallery-item.item-6 {
   grid-column: 1 / 3;
   grid-row: 5;
+}
+
+.gallery-item.item-7 {
+  grid-column: 1;
+  grid-row: 6;
+}
+
+.gallery-item.item-8 {
+  grid-column: 2;
+  grid-row: 6;
+}
+
+.gallery-item.item-9 {
+  grid-column: 1;
+  grid-row: 7;
+}
+
+.gallery-item.item-10 {
+  grid-column: 2;
+  grid-row: 7;
 }
 
 .gallery-item {
@@ -382,7 +419,7 @@ export default defineComponent({
   .gallery-grid {
     max-width: 600px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 150px);
+    grid-template-rows: repeat(4, 150px);
   }
 
   .gallery-item.item-1 {
@@ -414,12 +451,32 @@ export default defineComponent({
     grid-column: 3;
     grid-row: 3;
   }
+
+  .gallery-item.item-7 {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .gallery-item.item-8 {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .gallery-item.item-9 {
+    grid-column: 3;
+    grid-row: 4;
+  }
+
+  .gallery-item.item-10 {
+    grid-column: 1 / 4;
+    grid-row: 5;
+  }
 }
 
 @media (max-width: 375px) {
   .gallery-grid {
     gap: 10px;
-    grid-template-rows: repeat(4, 100px);
+    grid-template-rows: repeat(7, 100px);
   }
 
   .lightbox-nav.prev {

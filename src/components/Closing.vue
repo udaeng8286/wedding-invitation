@@ -2,36 +2,17 @@
   <section class="closing-section">
     <div class="closing-content">
       <div class="closing-message">
-        <h2>감사합니다</h2>
         <div class="message-text">
-          <p>저희의 소중한 첫걸음에</p>
-          <p>함께해 주시는 모든 분들께</p>
-          <p>진심으로 감사드립니다.</p>
-          <br />
-          <p>앞으로도 많은 사랑과 격려로</p>
-          <p>저희 두 사람이 서로를 더욱 사랑하며</p>
-          <p>행복한 가정을 이루어 나갈 수 있도록</p>
-          <p>지켜봐 주시기 바랍니다.</p>
+          <p>저희 두 사람의 시작을</p>
+          <p>진심으로 축복해 주시는 모든 분들께</p>
+          <p>머리숙여 깊은 감사드립니다.</p>
+          <p>행복하게 잘 살겠습니다.</p>
         </div>
-      </div>
-
-      <div class="couple-signature">
-        <div class="signature-line">
-          <span class="groom-signature">박준우</span>
-          <span class="signature-divider">&</span>
-          <span class="bride-signature">류호연</span>
-        </div>
-        <p class="signature-date">2025. 11. 09</p>
-      </div>
-
-      <div class="closing-decoration">
-        <div class="flower-decoration">🌸 💐 🌸</div>
-        <p class="blessing-text">새로운 시작을 축복해 주세요</p>
       </div>
     </div>
 
     <div class="footer-info">
-      <p class="footer-text">웨딩 초대장</p>
+      <p class="footer-text">wedding invitaion</p>
       <p class="footer-copyright">© 2025 JUNWOO ♥ HOYEON</p>
     </div>
   </section>
