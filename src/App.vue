@@ -2,7 +2,7 @@
   <div class="wedding-app">
     <div class="sections-container">
       <MainCover :coupleNames="{ groomName: 'JUNWOO', brideName: 'HOYEON' }" />
-
+      <Greeting />
       <!-- 계좌 컴포넌트 - URL 파라미터에 따라 조건부 렌더링 -->
       <BankAccount v-if="showBankAccount" :accounts="bankAccounts" />
 
@@ -24,6 +24,7 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted, computed } from "vue";
 import MainCover from "./components/MainCover.vue";
+import Greeting from "./components/Greeting.vue";
 import BankAccount from "./components/BankAccount.vue";
 
 export default defineComponent({
