@@ -5,6 +5,7 @@
       <Greeting></Greeting>
       <Calendar></Calendar>
       <Gallery></Gallery>
+      <Closing></Closing>
       <!-- 계좌 컴포넌트 - URL 파라미터에 따라 조건부 렌더링 -->
       <BankAccount v-if="showBankAccount" :accounts="bankAccounts" />
 
@@ -29,6 +30,7 @@ import MainCover from "./components/MainCover.vue";
 import Greeting from "./components/Greeting.vue";
 import Calendar from "./components/Calendar.vue";
 import Gallery from "./components/Gallery.vue";
+import Closing from "./components/Closing.vue";
 import BankAccount from "./components/BankAccount.vue";
 
 export default defineComponent({
