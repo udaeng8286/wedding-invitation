@@ -9,4 +9,11 @@ export default defineConfig({
       "@": "/src",
     },
   },
+  optimizeDeps: {
+    include: [
+      "primevue/resources/themes/lara-light-indigo/theme.css",
+      "primevue/resources/primevue.min.css",
+      "primeicons/primeicons.css",
+    ],
+  },
 });
