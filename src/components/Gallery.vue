@@ -78,6 +78,10 @@ import photo7 from "../assets/images/photo7.jpeg";
 import photo8 from "../assets/images/photo8.jpeg";
 import photo9 from "../assets/images/photo9.jpeg";
 import photo10 from "../assets/images/photo10.jpeg";
+import photo11 from "../assets/images/photo11.jpeg";
+import photo12 from "../assets/images/photo12.jpeg";
+import photo13 from "../assets/images/photo13.jpeg";
+import photo14 from "../assets/images/photo14.jpeg";
 
 // 갤러리 이미지들
 const galleryImages = ref<GalleryImage[]>([
@@ -130,6 +134,26 @@ const galleryImages = ref<GalleryImage[]>([
     id: 10,
     src: photo10,
     alt: "Wedding photo 10",
+  },
+  {
+    id: 11,
+    src: photo11,
+    alt: "Wedding photo 11",
+  },
+  {
+    id: 12,
+    src: photo12,
+    alt: "Wedding photo 12",
+  },
+  {
+    id: 13,
+    src: photo13,
+    alt: "Wedding photo 13",
+  },
+  {
+    id: 14,
+    src: photo14,
+    alt: "Wedding photo 14",
   },
 ]);
 
