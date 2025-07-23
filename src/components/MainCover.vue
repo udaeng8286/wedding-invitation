@@ -9,7 +9,7 @@
           <span class="bride-name">{{ coupleNames.brideName }}</span>
         </h1>
         <p class="wedding-date">2025.11.09</p>
-        <p class="wedding-location">일요일 오후 1시 | 그랜드컨벤션웨딩</p>
+        <p class="wedding-location">일요일 오후 12시 | 그랜드컨벤션웨딩</p>
         <div class="scroll-indicator">
           <span>↓</span>
           <p>스크롤하여 더 보기</p>

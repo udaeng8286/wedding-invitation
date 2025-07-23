@@ -2,7 +2,7 @@
   <section class="calendar-section">
     <div class="section-header">
       <h2>Wedding Day</h2>
-      <p class="wedding-datetime">Saturday, November 9, 2025 | PM 12:00</p>
+      <p class="wedding-datetime">Sunday, November 9, 2025 | PM 12:00</p>
     </div>
 
     <div class="calendar-container">
