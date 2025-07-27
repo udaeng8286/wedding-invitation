@@ -28,6 +28,7 @@
             <img
               :src="slotProps.item.itemImageSrc"
               :alt="slotProps.item.alt"
+              class="gallery-image"
               style="
                 width: 100%;
                 object-fit: contain;
@@ -63,7 +64,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 // 이미지를 동적으로 import하는 방법 (Vite 기준)
 const getImageUrl = (imageName: string) => {
@@ -152,6 +153,20 @@ const images = ref([
     alt: "Photo 14",
   },
 ]);
+
+// 이미지 프리로드 함수
+const preloadImages = (imageUrls: string[]) => {
+  imageUrls.forEach((url) => {
+    const img = new Image();
+    img.src = url;
+  });
+};
+
+// 컴포넌트 마운트 시 모든 이미지 프리로드
+onMounted(() => {
+  const imageUrls = images.value.map((img) => img.itemImageSrc);
+  preloadImages(imageUrls);
+});
 
 const prevImage = () => {
   if (activeIndex.value > 0) {
@@ -287,6 +302,11 @@ const handleSwipe = () => {
 
 .gallery-main:active {
   cursor: grabbing;
+}
+
+/* 이미지 전환 애니메이션 추가 */
+.gallery-image {
+  transition: opacity 0.3s ease-in-out;
 }
 
 .gallery-navigation {
