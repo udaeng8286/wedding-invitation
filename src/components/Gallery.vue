@@ -150,7 +150,7 @@ const nextImage = () => {
 <style scoped>
 .gallery-section {
   padding: 40px 20px;
-  background-color: var(--background-color);
+  background-color: white;
 }
 
 .section-header {

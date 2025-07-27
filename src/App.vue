@@ -53,8 +53,9 @@
       :class="{ 'audio-on': isPlaying }"
       @click="toggleAudio"
     >
-      <span v-if="isPlaying">🔊</span>
-      <span v-else>🔇</span>
+      <span class="material-icons">{{
+        isPlaying ? "volume_up" : "volume_off"
+      }}</span>
     </div>
 
     <!-- 배경 음악 -->
@@ -66,6 +67,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
+
 import MainCover from "./components/MainCover.vue";
 import Greeting from "./components/Greeting.vue";
 import CoupleIntro from "./components/CoupleIntro.vue";
@@ -112,6 +114,9 @@ onMounted(() => {
 /* main.css를 import */
 @import "./assets/styles/main.css";
 
+/* Google Material Icons 폰트 import */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 /* 커버 이미지 스타일 */
 .cover-image-section {
   width: 100%;
@@ -125,5 +130,10 @@ onMounted(() => {
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+/* 오디오 컨트롤 아이콘 스타일 */
+.audio-control .material-icons {
+  font-size: 24px;
 }
 </style>

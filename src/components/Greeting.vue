@@ -5,6 +5,7 @@
         <p class="poem-line">하늘 아래 내가 받은</p>
         <p class="poem-line">가장 커다란 선물은</p>
         <p class="poem-line">오늘입니다.</p>
+        <br />
         <p class="poem-line">오늘 받은 선물 가운데서도</p>
         <p class="poem-line">가장 아름다운 선물은</p>
         <p class="poem-line">당신입니다.</p>
@@ -82,7 +83,7 @@ onUnmounted(() => {
 }
 
 .poem-line {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 8px;
   font-weight: 300;
 }
@@ -101,7 +102,7 @@ onUnmounted(() => {
 
 .invitation-title {
   font-family: "Cormorant Garamond", serif;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: var(--accent-color);
   margin-bottom: 30px;
   font-weight: 300;
@@ -146,19 +147,5 @@ onUnmounted(() => {
 
 .invitation-message p {
   margin-bottom: 6px;
-}
-
-@media (max-width: 375px) {
-  .greeting-section {
-    padding: 40px 15px;
-  }
-
-  .invitation-title {
-    font-size: 2.2rem;
-  }
-
-  .poem-line {
-    font-size: 1rem;
-  }
 }
 </style>
