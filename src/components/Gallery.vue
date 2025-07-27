@@ -1,36 +1,48 @@
 <template>
   <section class="gallery-section">
     <div class="section-header">
-      <h2>우리의 특별한 순간들</h2>
+      <h2>GALLERY</h2>
       <p class="section-subtitle">소중한 추억을 함께 나누고 싶습니다</p>
     </div>
 
     <div class="gallery-container">
-      <Galleria
-        :value="images"
-        :numVisible="3"
-        :circular="true"
-        class="custom-galleria"
-      >
-        <template #item="slotProps">
-          <div class="gallery-item-wrapper">
+      <!-- 갤러리 -->
+      <div class="gallery-main">
+        <Galleria
+          :value="images"
+          v-model:activeIndex="activeIndex"
+          :circular="true"
+          :showThumbnails="false"
+          :showItemNavigators="false"
+        >
+          <template #item="slotProps">
             <img
               :src="slotProps.item.itemImageSrc"
               :alt="slotProps.item.alt"
-              class="gallery-main-image"
+              style="width: 100%; object-fit: contain; border-radius: 1rem"
             />
-          </div>
-        </template>
-        <template #thumbnail="slotProps">
-          <div class="gallery-thumbnail-wrapper">
-            <img
-              :src="slotProps.item.thumbnailImageSrc"
-              :alt="slotProps.item.alt"
-              class="gallery-thumbnail-image"
-            />
-          </div>
-        </template>
-      </Galleria>
+          </template>
+        </Galleria>
+      </div>
+
+      <!-- 하단 네비게이션 -->
+      <div class="gallery-navigation">
+        <button class="nav-button prev-button" @click="prevImage">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </button>
+
+        <div class="image-counter">
+          {{ activeIndex + 1 }} / {{ images.length }}
+        </div>
+
+        <button class="nav-button next-button" @click="nextImage">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+          </svg>
+        </button>
+      </div>
     </div>
   </section>
 </template>
@@ -42,6 +54,8 @@ import { ref } from "vue";
 const getImageUrl = (imageName: string) => {
   return new URL(`/src/assets/images/${imageName}`, import.meta.url).href;
 };
+
+const activeIndex = ref(0);
 
 const images = ref([
   {
@@ -115,22 +129,38 @@ const images = ref([
     alt: "Photo 14",
   },
 ]);
+
+const prevImage = () => {
+  if (activeIndex.value > 0) {
+    activeIndex.value--;
+  } else {
+    activeIndex.value = images.value.length - 1;
+  }
+};
+
+const nextImage = () => {
+  if (activeIndex.value < images.value.length - 1) {
+    activeIndex.value++;
+  } else {
+    activeIndex.value = 0;
+  }
+};
 </script>
 
 <style scoped>
 .gallery-section {
-  padding: 60px 20px;
-  background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);
+  padding: 40px 20px;
+  background-color: var(--background-color);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .section-header h2 {
   font-family: "Cormorant Garamond", serif;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   color: var(--accent-color);
   font-weight: 300;
   letter-spacing: 1px;
@@ -138,128 +168,113 @@ const images = ref([
 }
 
 .section-subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #666;
   font-weight: 300;
   line-height: 1.6;
 }
 
 .gallery-container {
-  max-width: 700px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-}
-
-/* Galleria 커스텀 스타일 */
-:deep(.custom-galleria) {
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-:deep(.p-galleria-content) {
-  border-radius: 15px;
-}
-
-:deep(.p-galleria-item-wrapper) {
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-.gallery-item-wrapper {
   width: 100%;
-  height: 600px; /* 세로 이미지에 맞춰 높이 증가 */
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.gallery-main {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.gallery-navigation {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-.gallery-main-image {
-  width: auto;
-  height: 100%;
-  max-width: 100%;
-  object-fit: contain; /* 이미지 전체가 보이도록 변경 */
-  transition: transform 0.3s ease;
-}
-
-.gallery-main-image:hover {
-  transform: scale(1.02);
-}
-
-.gallery-thumbnail-wrapper {
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+.nav-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.gallery-thumbnail-wrapper:hover {
-  border-color: var(--accent-color);
+.nav-button:hover {
+  color: rgb(70, 70, 70);
   transform: scale(1.05);
 }
 
-.gallery-thumbnail-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.nav-button:active {
+  transform: scale(0.95);
 }
 
-/* 반응형 디자인 */
-@media (max-width: 768px) {
+.image-counter {
+  color: rgb(70, 70, 70);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 430px) {
   .gallery-section {
-    padding: 40px 15px;
+    padding: 30px 15px;
   }
 
   .gallery-container {
-    padding: 20px;
-    margin: 0 10px;
-  }
-
-  .gallery-item-wrapper {
-    height: 450px; /* 모바일에서는 조금 낮게 */
+    max-width: 100%;
+    padding: 0 5px;
   }
 
   .section-header h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
-  .gallery-thumbnail-wrapper {
-    width: 60px;
-    height: 60px;
+  .section-subtitle {
+    font-size: 0.85rem;
   }
 
-  :deep(.p-galleria-item-prev),
-  :deep(.p-galleria-item-next) {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+  .nav-button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .gallery-navigation {
+    gap: 15px;
+  }
+
+  .image-counter {
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
 }
 
-@media (max-width: 480px) {
-  .gallery-item-wrapper {
-    height: 380px; /* 작은 화면에서 더 낮게 */
+@media (max-width: 375px) {
+  .gallery-section {
+    padding: 25px 10px;
   }
 
-  .gallery-thumbnail-wrapper {
-    width: 50px;
-    height: 50px;
+  .section-header h2 {
+    font-size: 1.5rem;
   }
 
-  :deep(.p-galleria-thumbnail-wrapper) {
-    padding: 4px;
+  .nav-button {
+    width: 32px;
+    height: 32px;
   }
 
-  .gallery-container {
-    padding: 15px;
+  .gallery-navigation {
+    gap: 12px;
   }
 }
 </style>
