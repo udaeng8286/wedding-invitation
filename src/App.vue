@@ -16,6 +16,9 @@
       <!-- 갤러리 -->
       <Gallery />
 
+      <!-- 위치 -->
+      <Location />
+
       <!-- 계좌 컴포넌트 -->
       <BankAccount />
 
@@ -46,6 +49,7 @@ import MainCover from "./components/MainCover.vue";
 import Greeting from "./components/Greeting.vue";
 import CoupleIntro from "./components/CoupleIntro.vue";
 import Calendar from "./components/Calendar.vue";
+import Location from "./components/Location.vue";
 import Gallery from "./components/Gallery.vue";
 import Closing from "./components/Closing.vue";
 import BankAccount from "./components/BankAccount.vue";
