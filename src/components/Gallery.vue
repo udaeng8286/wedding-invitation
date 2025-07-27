@@ -7,7 +7,16 @@
 
     <div class="gallery-container">
       <!-- 갤러리 -->
-      <div class="gallery-main">
+      <div
+        class="gallery-main"
+        @touchstart="onTouchStart"
+        @touchmove="onTouchMove"
+        @touchend="onTouchEnd"
+        @mousedown="onMouseDown"
+        @mousemove="onMouseMove"
+        @mouseup="onMouseUp"
+        @mouseleave="onMouseUp"
+      >
         <Galleria
           :value="images"
           v-model:activeIndex="activeIndex"
@@ -19,7 +28,13 @@
             <img
               :src="slotProps.item.itemImageSrc"
               :alt="slotProps.item.alt"
-              style="width: 100%; object-fit: contain; border-radius: 1rem"
+              style="
+                width: 100%;
+                object-fit: contain;
+                border-radius: 1rem;
+                user-select: none;
+                pointer-events: none;
+              "
             />
           </template>
         </Galleria>
@@ -56,6 +71,14 @@ const getImageUrl = (imageName: string) => {
 };
 
 const activeIndex = ref(0);
+
+// 스와이프 관련 상태
+const touchStartX = ref(0);
+const touchStartY = ref(0);
+const touchEndX = ref(0);
+const touchEndY = ref(0);
+const isDragging = ref(false);
+const isMouseDown = ref(false);
 
 const images = ref([
   {
@@ -145,6 +168,81 @@ const nextImage = () => {
     activeIndex.value = 0;
   }
 };
+
+// 터치 이벤트 핸들러
+const onTouchStart = (e: TouchEvent) => {
+  touchStartX.value = e.touches[0].clientX;
+  touchStartY.value = e.touches[0].clientY;
+  isDragging.value = true;
+};
+
+const onTouchMove = (e: TouchEvent) => {
+  if (!isDragging.value) return;
+
+  // 수직 스크롤을 방해하지 않도록 수평 스와이프만 처리
+  const deltaX = Math.abs(e.touches[0].clientX - touchStartX.value);
+  const deltaY = Math.abs(e.touches[0].clientY - touchStartY.value);
+
+  if (deltaX > deltaY && deltaX > 10) {
+    e.preventDefault(); // 수평 스와이프일 때만 기본 동작 방지
+  }
+};
+
+const onTouchEnd = (e: TouchEvent) => {
+  if (!isDragging.value) return;
+
+  touchEndX.value = e.changedTouches[0].clientX;
+  touchEndY.value = e.changedTouches[0].clientY;
+  handleSwipe();
+  isDragging.value = false;
+};
+
+// 마우스 이벤트 핸들러 (데스크톱 지원)
+const onMouseDown = (e: MouseEvent) => {
+  touchStartX.value = e.clientX;
+  touchStartY.value = e.clientY;
+  isMouseDown.value = true;
+  isDragging.value = true;
+};
+
+const onMouseMove = (e: MouseEvent) => {
+  if (!isMouseDown.value || !isDragging.value) return;
+
+  const deltaX = Math.abs(e.clientX - touchStartX.value);
+  const deltaY = Math.abs(e.clientY - touchStartY.value);
+
+  if (deltaX > deltaY && deltaX > 10) {
+    e.preventDefault();
+  }
+};
+
+const onMouseUp = (e: MouseEvent) => {
+  if (!isMouseDown.value || !isDragging.value) return;
+
+  touchEndX.value = e.clientX;
+  touchEndY.value = e.clientY;
+  handleSwipe();
+  isMouseDown.value = false;
+  isDragging.value = false;
+};
+
+// 스와이프 처리 로직
+const handleSwipe = () => {
+  const deltaX = touchStartX.value - touchEndX.value;
+  const deltaY = Math.abs(touchStartY.value - touchEndY.value);
+  const minSwipeDistance = 50;
+
+  // 수평 스와이프가 수직 스와이프보다 크고, 최소 거리 이상일 때만 처리
+  if (Math.abs(deltaX) > deltaY && Math.abs(deltaX) > minSwipeDistance) {
+    if (deltaX > 0) {
+      // 왼쪽으로 스와이프 -> 다음 이미지
+      nextImage();
+    } else {
+      // 오른쪽으로 스와이프 -> 이전 이미지
+      prevImage();
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -183,6 +281,12 @@ const nextImage = () => {
 .gallery-main {
   width: 100%;
   margin-bottom: 20px;
+  cursor: grab;
+  touch-action: pan-y; /* 수직 스크롤은 허용, 수평 스와이프만 제어 */
+}
+
+.gallery-main:active {
+  cursor: grabbing;
 }
 
 .gallery-navigation {
