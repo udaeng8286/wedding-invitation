@@ -7,6 +7,18 @@
       <!-- 인사말 -->
       <Greeting />
 
+      <!-- 커버 이미지 섹션 -->
+      <div class="cover-image-section">
+        <img
+          src="./assets/images/cover.jpeg"
+          alt="Wedding Cover"
+          class="cover-image"
+        />
+      </div>
+
+      <!-- 커버 날짜 -->
+      <CoverDate />
+
       <!-- 캘린더 및 디데이 -->
       <Calendar />
 
@@ -21,6 +33,15 @@
 
       <!-- 계좌 컴포넌트 -->
       <BankAccount />
+
+      <!-- 커버 이미지 섹션 -->
+      <div class="cover-image-section">
+        <img
+          src="./assets/images/cover2.jpeg"
+          alt="Wedding Cover"
+          class="cover-image"
+        />
+      </div>
 
       <!-- 마무리 인사 -->
       <Closing />
@@ -48,6 +69,7 @@ import { ref, onMounted, computed } from "vue";
 import MainCover from "./components/MainCover.vue";
 import Greeting from "./components/Greeting.vue";
 import CoupleIntro from "./components/CoupleIntro.vue";
+import CoverDate from "./components/CoverDate.vue";
 import Calendar from "./components/Calendar.vue";
 import Location from "./components/Location.vue";
 import Gallery from "./components/Gallery.vue";
@@ -89,4 +111,19 @@ onMounted(() => {
 <style>
 /* main.css를 import */
 @import "./assets/styles/main.css";
+
+/* 커버 이미지 스타일 */
+.cover-image-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.cover-image {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 </style>
