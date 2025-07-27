@@ -2,7 +2,10 @@
   <section class="bank-account-section">
     <div class="section-header">
       <h2>마음 전하실 곳</h2>
-      <p>참석이 어려우신 분들은<br />축복과 사랑으로 마음을 전해보세요</p>
+      <p>
+        참석이 어려우신 분들을 위해 기재했습니다<br />너그러운 마음으로 양해
+        부탁드립니다
+      </p>
     </div>
 
     <div class="button-container">

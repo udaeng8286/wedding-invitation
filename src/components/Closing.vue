@@ -49,7 +49,7 @@ export default defineComponent({
 }
 
 .message-text {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: var(--text-color);
   margin-bottom: 40px;

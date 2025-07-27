@@ -10,10 +10,12 @@
         </h1>
         <p class="wedding-date">2025.11.09</p>
         <p class="wedding-location">일요일 오후 12시 | 그랜드컨벤션웨딩</p>
-        <div class="scroll-indicator">
-          <span>↓</span>
-          <p>스크롤하여 더 보기</p>
-        </div>
+      </div>
+
+      <!-- 스크롤 인디케이터를 cover-content 밖으로 이동 -->
+      <div class="scroll-indicator">
+        <span>↓</span>
+        <p>스크롤하여 더 보기</p>
       </div>
     </div>
   </section>
@@ -105,21 +107,27 @@ export default defineComponent({
 
 .scroll-indicator {
   position: absolute;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 2s infinite;
   text-align: center;
   opacity: 0.8;
+  z-index: 3;
+  color: white;
 }
 
 .scroll-indicator span {
   display: block;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-bottom: 5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .scroll-indicator p {
   font-size: 0.8rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 0;
 }
 
 @keyframes bounce {
@@ -135,6 +143,20 @@ export default defineComponent({
   }
   60% {
     transform: translateY(-5px) translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-indicator {
+    bottom: 20px;
+  }
+
+  .scroll-indicator span {
+    font-size: 1rem;
+  }
+
+  .scroll-indicator p {
+    font-size: 0.7rem;
   }
 }
 </style>

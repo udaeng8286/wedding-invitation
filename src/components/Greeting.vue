@@ -12,7 +12,11 @@
       </div>
     </div>
 
-    <div class="invitation-container">
+    <div
+      class="invitation-container"
+      ref="invitationRef"
+      :class="{ visible: isVisible }"
+    >
       <h2 class="invitation-title">Invitation</h2>
       <div class="couple-announcement">
         <h3>준우 & 호연 결혼합니다.</h3>
@@ -28,11 +32,33 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
 
-export default defineComponent({
-  name: "Greeting",
+const invitationRef = ref<HTMLElement | null>(null);
+const isVisible = ref(false);
+
+const handleScroll = () => {
+  if (!invitationRef.value) return;
+
+  const rect = invitationRef.value.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  // 요소가 뷰포트에 들어오면 애니메이션 시작
+  if (rect.top < windowHeight * 0.8 && rect.bottom > windowHeight * 0.2) {
+    isVisible.value = true;
+  } else {
+    isVisible.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // 초기 체크
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 
@@ -46,9 +72,7 @@ export default defineComponent({
 .poem-container {
   margin-bottom: 50px;
   padding: 30px 20px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 15px;
-  border-left: 4px solid var(--primary-color);
 }
 
 .poem-text {
@@ -82,6 +106,13 @@ export default defineComponent({
   margin-bottom: 30px;
   font-weight: 300;
   letter-spacing: 2px;
+  opacity: 0.1;
+  transition: opacity 0.8s ease-in-out;
+  transition-delay: 0.1s;
+}
+
+.invitation-container.visible .invitation-title {
+  opacity: 1;
 }
 
 .couple-announcement h3 {
@@ -89,6 +120,13 @@ export default defineComponent({
   color: var(--text-color);
   margin-bottom: 25px;
   font-weight: 500;
+  opacity: 0.1;
+  transition: opacity 0.8s ease-in-out;
+  transition-delay: 0.4s;
+}
+
+.invitation-container.visible .couple-announcement h3 {
+  opacity: 1;
 }
 
 .invitation-message {
@@ -97,6 +135,13 @@ export default defineComponent({
   color: #555;
   max-width: 350px;
   margin: 0 auto;
+  opacity: 0.1;
+  transition: opacity 0.8s ease-in-out;
+  transition-delay: 0.7s;
+}
+
+.invitation-container.visible .invitation-message {
+  opacity: 1;
 }
 
 .invitation-message p {
