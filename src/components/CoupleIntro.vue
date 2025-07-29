@@ -106,13 +106,13 @@
                 </div>
                 <div class="contact-actions">
                   <button
-                    @click="sendMessage('01012345679')"
+                    @click="sendMessage('01035073930')"
                     class="action-btn message-btn"
                   >
                     문자 보내기
                   </button>
                   <button
-                    @click="makeCall('01012345679')"
+                    @click="makeCall('01035073930')"
                     class="action-btn call-btn"
                   >
                     전화하기
@@ -127,13 +127,13 @@
                 </div>
                 <div class="contact-actions">
                   <button
-                    @click="sendMessage('01012345680')"
+                    @click="sendMessage('01080075761')"
                     class="action-btn message-btn"
                   >
                     문자 보내기
                   </button>
                   <button
-                    @click="makeCall('01012345680')"
+                    @click="makeCall('01080075761')"
                     class="action-btn call-btn"
                   >
                     전화하기
@@ -171,13 +171,13 @@
                 </div>
                 <div class="contact-actions">
                   <button
-                    @click="sendMessage('01087654322')"
+                    @click="sendMessage('01035460690')"
                     class="action-btn message-btn"
                   >
                     문자 보내기
                   </button>
                   <button
-                    @click="makeCall('01087654322')"
+                    @click="makeCall('01035460690')"
                     class="action-btn call-btn"
                   >
                     전화하기
@@ -192,13 +192,13 @@
                 </div>
                 <div class="contact-actions">
                   <button
-                    @click="sendMessage('01087654323')"
+                    @click="sendMessage('01040230690')"
                     class="action-btn message-btn"
                   >
                     문자 보내기
                   </button>
                   <button
-                    @click="makeCall('01087654323')"
+                    @click="makeCall('01040230690')"
                     class="action-btn call-btn"
                   >
                     전화하기
