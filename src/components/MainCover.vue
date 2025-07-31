@@ -42,7 +42,10 @@ export default defineComponent({
 
 <style scoped>
 .cover-section {
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .cover-background {
@@ -55,6 +58,9 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  /* 카카오톡 스크롤 최적화만 추가 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .overlay {

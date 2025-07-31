@@ -119,10 +119,9 @@ onMounted(() => {
 
 /* 커버 이미지 스타일 */
 .cover-image-section {
-  height: calc(var(--vh, 1vh) * 80);
-  background-image: url("../assets/images/cover.jpeg");
-  background-size: cover;
-  background-position: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .cover-image {
@@ -131,6 +130,9 @@ onMounted(() => {
   object-fit: cover;
   object-position: center;
   display: block;
+  /* 카카오톡 스크롤 최적화만 추가 */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* 오디오 컨트롤 아이콘 스타일 */
