@@ -42,10 +42,7 @@ export default defineComponent({
 
 <style scoped>
 .cover-section {
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .cover-background {

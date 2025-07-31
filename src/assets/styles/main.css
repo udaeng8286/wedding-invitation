@@ -38,6 +38,10 @@
   box-sizing: border-box;
 }
 
+html {
+  --vh: 1vh;
+}
+
 body {
   font-family: "Noto Serif KR", serif;
   background-color: var(--background-color);

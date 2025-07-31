@@ -119,9 +119,10 @@ onMounted(() => {
 
 /* 커버 이미지 스타일 */
 .cover-image-section {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  height: calc(var(--vh, 1vh) * 80);
+  background-image: url("../assets/images/cover.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
 .cover-image {
