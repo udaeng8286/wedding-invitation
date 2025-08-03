@@ -133,7 +133,6 @@ onMounted(() => {
   object-fit: cover;
   object-position: center;
   display: block;
-  /* GPU 가속 및 카카오톡 스크롤 최적화 */
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
@@ -141,24 +140,10 @@ onMounted(() => {
   will-change: transform;
 }
 
-/* 모바일 최적화 */
-@media (max-width: 430px) {
-  .cover-image-section {
-    height: 667px; /* 일반적인 모바일 높이 */
-  }
-}
-
 /* 작은 모바일 (iPhone SE 등) */
 @media (max-width: 375px) {
   .cover-image-section {
     height: 600px;
-  }
-}
-
-/* 큰 모바일 (iPhone Pro Max 등) */
-@media (min-width: 431px) and (max-width: 500px) {
-  .cover-image-section {
-    height: 900px;
   }
 }
 

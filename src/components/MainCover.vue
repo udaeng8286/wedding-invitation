@@ -158,11 +158,4 @@ export default defineComponent({
     height: 600px;
   }
 }
-
-/* 큰 모바일 (iPhone Pro Max 등) */
-@media (min-width: 431px) and (max-width: 500px) {
-  .cover-section {
-    height: 900px;
-  }
-}
 </style>
