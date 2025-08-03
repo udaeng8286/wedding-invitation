@@ -43,7 +43,7 @@ onUnmounted(() => {
 <style scoped>
 .cover-date {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: transparent;
   display: flex;
   align-items: center;

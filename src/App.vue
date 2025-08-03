@@ -66,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 
 import MainCover from "./components/MainCover.vue";
 import Greeting from "./components/Greeting.vue";
@@ -117,14 +117,11 @@ onMounted(() => {
 /* Google Material Icons 폰트 import */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-/* 커버 이미지 스타일 - 고정 높이로 변경 */
+/* 커버 이미지 스타일 */
 .cover-image-section {
   width: 100%;
-  height: 857px; /* 고정 높이 설정 */
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  position: relative;
 }
 
 .cover-image {
@@ -133,18 +130,9 @@ onMounted(() => {
   object-fit: cover;
   object-position: center;
   display: block;
+  /* 카카오톡 스크롤 최적화만 추가 */
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: transform;
-}
-
-/* 작은 모바일 (iPhone SE 등) */
-@media (max-width: 375px) {
-  .cover-image-section {
-    height: 600px;
-  }
 }
 
 /* 오디오 컨트롤 아이콘 스타일 */
