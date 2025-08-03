@@ -48,6 +48,27 @@ export default defineComponent({
   overflow: hidden;
 }
 
+/* iPhone 14 Pro (~430px) */
+@media (max-width: 430px) {
+  .cover-section {
+    height: 852px;
+  }
+}
+
+/* iPhone 12 (~390px) */
+@media (max-width: 390px) {
+  .cover-section {
+    height: 844px;
+  }
+}
+
+/* iPhone SE (~375px) */
+@media (max-width: 375px) {
+  .cover-section {
+    height: 667px;
+  }
+}
+
 .cover-background {
   height: 100%;
   width: 100%;

@@ -56,6 +56,27 @@ onUnmounted(() => {
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* iPhone 14 Pro (~430px) */
+@media (max-width: 430px) {
+  .cover-date {
+    min-height: 852px;
+  }
+}
+
+/* iPhone 12 (~390px) */
+@media (max-width: 390px) {
+  .cover-date {
+    min-height: 844px;
+  }
+}
+
+/* iPhone SE (~375px) */
+@media (max-width: 375px) {
+  .cover-date {
+    min-height: 667px;
+  }
+}
+
 .cover-date.visible {
   background-color: #deb6ab;
 }
