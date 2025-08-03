@@ -42,7 +42,7 @@ export default defineComponent({
 
 <style scoped>
 .cover-section {
-  height: 100vh;
+  height: 857px; /* 고정 높이로 변경 */
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -58,9 +58,12 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 카카오톡 스크롤 최적화만 추가 */
+  /* GPU 가속 및 카카오톡 스크롤 최적화 */
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 .overlay {
@@ -149,17 +152,17 @@ export default defineComponent({
   }
 }
 
-@media (max-width: 768px) {
-  .scroll-indicator {
-    bottom: 20px;
+/* 작은 모바일 (iPhone SE 등) */
+@media (max-width: 375px) {
+  .cover-section {
+    height: 600px;
   }
+}
 
-  .scroll-indicator span {
-    font-size: 1rem;
-  }
-
-  .scroll-indicator p {
-    font-size: 0.7rem;
+/* 큰 모바일 (iPhone Pro Max 등) */
+@media (min-width: 431px) and (max-width: 500px) {
+  .cover-section {
+    height: 900px;
   }
 }
 </style>

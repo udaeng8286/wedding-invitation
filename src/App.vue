@@ -66,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted } from "vue";
 
 import MainCover from "./components/MainCover.vue";
 import Greeting from "./components/Greeting.vue";
@@ -117,22 +117,49 @@ onMounted(() => {
 /* Google Material Icons 폰트 import */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-/* 커버 이미지 스타일 */
+/* 커버 이미지 스타일 - 고정 높이로 변경 */
 .cover-image-section {
   width: 100%;
+  height: 857px; /* 고정 높이 설정 */
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  position: relative;
 }
 
 .cover-image {
   width: 100%;
-  height: 80vh;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
-  /* 카카오톡 스크롤 최적화만 추가 */
+  /* GPU 가속 및 카카오톡 스크롤 최적화 */
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 430px) {
+  .cover-image-section {
+    height: 667px; /* 일반적인 모바일 높이 */
+  }
+}
+
+/* 작은 모바일 (iPhone SE 등) */
+@media (max-width: 375px) {
+  .cover-image-section {
+    height: 600px;
+  }
+}
+
+/* 큰 모바일 (iPhone Pro Max 등) */
+@media (min-width: 431px) and (max-width: 500px) {
+  .cover-image-section {
+    height: 900px;
+  }
 }
 
 /* 오디오 컨트롤 아이콘 스타일 */
