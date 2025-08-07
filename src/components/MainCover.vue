@@ -115,7 +115,8 @@ export default defineComponent({
   font-style: italic;
 }
 
-.wedding-date {
+.wedding-date,
+.wedding-location {
   margin-bottom: 0.5rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
