@@ -144,6 +144,7 @@ const shareKakao = () => {
   }
 
   try {
+    console.log(window.location.href);
     window.Kakao.Share.sendCustom({
       templateId: 122846,
       templateArgs: {

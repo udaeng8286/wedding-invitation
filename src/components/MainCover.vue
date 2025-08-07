@@ -8,8 +8,8 @@
           <span class="ampersand">&</span>
           <span class="bride-name">{{ coupleNames.brideName }}</span>
         </h1>
-        <p class="wedding-date">2025.11.09</p>
-        <p class="wedding-location">일요일 오후 12시 | 그랜드컨벤션웨딩</p>
+        <p class="wedding-date">2025.11.09 | 일요일 오후 12시</p>
+        <p class="wedding-location">그랜드컨벤션웨딩 1층 컨벤션홀</p>
       </div>
 
       <!-- 스크롤 인디케이터를 cover-content 밖으로 이동 -->
@@ -116,16 +116,7 @@ export default defineComponent({
 }
 
 .wedding-date {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.wedding-location {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin-bottom: 2rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 

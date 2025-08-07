@@ -12,7 +12,7 @@
 
     <!-- 주소 정보 -->
     <div class="address-info">
-      <div class="venue-name">그랜드컨벤션웨딩</div>
+      <div class="venue-name">그랜드컨벤션웨딩 1층 컨벤션 홀</div>
       <div class="address-container">
         <div class="address">경북 영주시 원당로 80</div>
         <button
