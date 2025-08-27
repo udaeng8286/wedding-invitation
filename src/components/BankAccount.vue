@@ -73,17 +73,14 @@
             <p>
               저희 딸이<br />
               귀하고 소중한 연인을 만나 사랑을 하고<br />
-              한 가정을 이루고자 혼인의 예를 올립니다.
-            </p>
-            <p>
+              한 가정을 이루고자 혼인의 예를 올립니다.<br />
               새 인생을 출발하는 두 사람을<br />
               가까이에서 함께 축복해 주시면<br />
-              감사하겠습니다.
+              감사하겠습니다.<br />
+              오셔서 맛있게 식사하시고 가세요.<br />
+              축하는 마음으로만 받겠습니다.
             </p>
-            <p class="highlight">
-              축의금은 받지 않습니다.<br />
-              오셔서 맛있게 식사하시고 가세요.
-            </p>
+            <p class="highlight">축의금은 받지 않습니다.</p>
           </div>
 
           <!-- /?account=true 라우터: 신부 계좌만 표시 -->
@@ -312,7 +309,7 @@ const copyAccountNumber = async (accountNumber: string) => {
 }
 
 .modal-body {
-  padding: 20px 25px 25px;
+  padding: 20px;
 }
 
 .account-list {
@@ -403,10 +400,6 @@ const copyAccountNumber = async (accountNumber: string) => {
 @media (max-width: 375px) {
   .button-container {
     max-width: 280px;
-  }
-
-  .modal-content {
-    margin: 10px;
   }
 }
 </style>
