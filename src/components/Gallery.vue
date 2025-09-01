@@ -2,7 +2,7 @@
   <section class="gallery-section">
     <div class="section-header">
       <h2>GALLERY</h2>
-      <p class="section-subtitle">소중한 추억을 함께 나누고 싶습니다</p>
+      <p class="section-subtitle">소중한 추억을 함께 나누고 싶습니다.</p>
     </div>
 
     <div class="gallery-container">

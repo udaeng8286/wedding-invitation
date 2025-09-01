@@ -3,8 +3,8 @@
     <div class="section-header">
       <h2>마음 전하실 곳</h2>
       <p>
-        참석이 어려우신 분들을 위해 기재했습니다<br />너그러운 마음으로 양해
-        부탁드립니다
+        참석이 어려우신 분들을 위해 기재하였습니다.<br />너그러운 마음으로 양해
+        부탁드립니다.
       </p>
     </div>
 
@@ -165,7 +165,7 @@ const closeBrideModal = () => {
 const copyAccountNumber = async (accountNumber: string) => {
   try {
     await navigator.clipboard.writeText(accountNumber);
-    alert("계좌번호가 복사되었습니다");
+    alert("계좌번호가 복사되었습니다.");
   } catch (err) {
     console.error("복사 실패:", err);
     // 폴백: 텍스트 선택
@@ -175,7 +175,7 @@ const copyAccountNumber = async (accountNumber: string) => {
     textArea.select();
     try {
       document.execCommand("copy");
-      alert("계좌번호가 복사되었습니다");
+      alert("계좌번호가 복사되었습니다.");
     } catch (fallbackErr) {
       console.error("폴백 복사도 실패:", fallbackErr);
     }
@@ -197,7 +197,7 @@ const copyAccountNumber = async (accountNumber: string) => {
 
 .section-header h2 {
   font-family: "Cormorant Garamond", serif;
-  font-size: 2.2rem;
+  font-size: 1.4rem;
   color: var(--accent-color);
   margin-bottom: 15px;
   font-weight: 300;

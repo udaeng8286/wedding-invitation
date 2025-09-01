@@ -2,7 +2,7 @@
   <section class="location-section">
     <div class="section-header">
       <h2>LOCATION</h2>
-      <p class="section-subtitle">오시는 길을 안내해드립니다</p>
+      <p class="section-subtitle">오시는 길</p>
     </div>
 
     <!-- 카카오맵 -->
@@ -38,8 +38,8 @@
           <h3>기차</h3>
           <div class="transport-detail">
             <strong>영주역</strong>
-            <p>택시 이용 시 약 5분 소요</p>
             <p>도보 이용 시 약 20분 소요</p>
+            <p>택시 이용 시 약 5분 소요</p>
           </div>
         </div>
       </div>

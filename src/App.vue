@@ -7,6 +7,9 @@
       <!-- 인사말 -->
       <Greeting />
 
+      <!-- 신랑신부 소개 -->
+      <CoupleIntro />
+
       <!-- 커버 이미지 섹션 -->
       <div class="cover-image-section">
         <img
@@ -21,9 +24,6 @@
 
       <!-- 캘린더 및 디데이 -->
       <Calendar />
-
-      <!-- 신랑신부 소개 -->
-      <CoupleIntro />
 
       <!-- 갤러리 -->
       <Gallery />

@@ -148,7 +148,7 @@ const shareKakao = () => {
     window.Kakao.Share.sendCustom({
       templateId: 122846,
       templateArgs: {
-        title: "준우 ♥ 호연 결혼합니다",
+        title: "준우 ♥ 호연 결혼합니다.",
         description:
           "저희 두 사람의 시작을 진심으로 축복해 주시는 모든 분들께 감사드립니다.",
         imageUrl: `${window.location.origin}/images/wedding-main.jpg`,
@@ -176,7 +176,7 @@ const tryDefaultTemplate = () => {
     window.Kakao.Link.sendDefault({
       objectType: "feed",
       content: {
-        title: "준우 ♥ 호연 결혼합니다",
+        title: "준우 ♥ 호연 결혼합니다.",
         description:
           "저희 두 사람의 시작을 진심으로 축복해 주시는 모든 분들께 감사드립니다.",
         imageUrl: `${window.location.origin}/images/wedding-main.jpg`,
@@ -214,7 +214,7 @@ const fallbackShare = () => {
   if (navigator.share) {
     navigator
       .share({
-        title: "준우 ♥ 호연 결혼합니다",
+        title: "준우 ♥ 호연 결혼합니다.",
         text: "저희 두 사람의 시작을 진심으로 축복해 주시는 모든 분들께 감사드립니다.",
         url: window.location.href,
       })

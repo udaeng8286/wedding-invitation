@@ -120,7 +120,7 @@ const countdownMessage = computed(() => {
   if (total <= 0) {
     return "🎉 결혼식이 진행 중입니다! 🎉";
   }
-  return `준우 ♥ 호연의 결혼식이 ${countdown.value.days}일 남았습니다`;
+  return `준우 ♥ 호연의 결혼식이 ${countdown.value.days}일 남았습니다.`;
 });
 
 const updateTime = () => {
