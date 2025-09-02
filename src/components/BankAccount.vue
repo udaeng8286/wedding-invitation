@@ -1,5 +1,12 @@
 <template>
   <section class="bank-account-section">
+    <div class="flower_icon">
+      <img
+        src="/src/assets/images/flower.svg"
+        alt="Wedding Cover"
+        class="flower-icon"
+      />
+    </div>
     <div class="section-header">
       <h2>마음 전하실 곳</h2>
       <p>
@@ -189,6 +196,12 @@ const copyAccountNumber = async (accountNumber: string) => {
   padding: 60px 20px;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   text-align: center;
+}
+
+.flower-icon {
+  width: 3.5rem;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 .section-header {

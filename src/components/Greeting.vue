@@ -120,7 +120,7 @@ onUnmounted(() => {
 }
 
 .couple-announcement h3 {
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: var(--text-color);
   margin-bottom: 25px;
   font-weight: 500;
