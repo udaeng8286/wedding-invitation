@@ -35,11 +35,20 @@
           <span class="material-icons">train</span>
         </div>
         <div class="transport-content">
-          <h3>기차</h3>
+          <div class="transport-how">
+            <h3>기차</h3>
+            <div class="sub">영주역</div>
+          </div>
           <div class="transport-detail">
-            <strong>영주역</strong>
-            <p>도보 이용 시 약 20분 소요</p>
-            <p>택시 이용 시 약 5분 소요</p>
+            <div>
+              <strong>버스 이용 시</strong>
+              <p>1,5(대영연합의원 방면)</p>
+              <p>우체국건너 하차 > 도보 6분 소요</p>
+            </div>
+            <div>  
+              <strong>택시 이용 시</strong>
+              <p>약 5분 소요</p>
+            </div>
           </div>
         </div>
       </div>
@@ -50,11 +59,22 @@
           <span class="material-icons">directions_bus</span>
         </div>
         <div class="transport-content">
-          <h3>고속버스</h3>
+            <div class="transport-how">
+            <h3>고속버스</h3>
+            <div class="sub">영주종합터미널</div>
+          </div>
           <div class="transport-detail">
-            <strong>영주종합터미널</strong>
-            <p>택시 이용 시 약 10분 소요</p>
-            <p>버스 이용 시 약 20분 소요 (1번, 3번)</p>
+            <div>  
+              <strong>버스 이용시</strong>
+              <p>1(제일고등학교앞 방면)</p>
+              <p class="mb-3">성황타일도기사 하차 > 도보 4분 소요</p>
+              <p>3(적십자 병원 방면)</p>
+              <p>시민교회앞 하차 > 도보 6분 소요</p>
+            </div>
+            <div>
+              <strong>택시 이용 시</strong>
+              <p>약 10분 소요</p>
+            </div>
           </div>
         </div>
       </div>
@@ -347,6 +367,14 @@ onMounted(async () => {
   margin-bottom: 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
+.transport-how{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sub{
+  color:#6a6a6a;
+}
 
 .transport-icon {
   margin-right: 15px;
@@ -369,6 +397,11 @@ onMounted(async () => {
   font-weight: 500;
 }
 
+.transport-detail{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .transport-detail strong {
   color: #333;
   font-size: 0.9rem;
@@ -379,6 +412,10 @@ onMounted(async () => {
   font-size: 0.85rem;
   color: #666;
   line-height: 1.4;
+}
+
+.detail-box{
+  margin-bottom: 1rem;
 }
 
 .navigation-buttons {
