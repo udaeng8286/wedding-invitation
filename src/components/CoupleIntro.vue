@@ -4,18 +4,12 @@
       <!-- 신랑 섹션 -->
       <div class="couple-section groom-section">
         <div class="couple-info">
-          <div class="name-with-flower">
-            <span class="couple-name">박남일</span>
-            <span class="flower-icon"> | </span>
-            <span class="korean-name">권혜숙</span>
+          <div class="name-line">
+            <span class="parent-name">박남일</span>
+            <span class="dot">·</span>
+            <span class="parent-name">권혜숙</span>
             <span class="relation">의 아들</span>
-          </div>
-        </div>
-
-        <div class="role-section">
-          <div class="role-label">신랑</div>
-          <div class="person-name">
-            박준우 <span class="english-name">JUNWOO</span>
+            <span class="person-name">박준우</span>
           </div>
         </div>
       </div>
@@ -26,18 +20,12 @@
       <!-- 신부 섹션 -->
       <div class="couple-section bride-section">
         <div class="couple-info">
-          <div class="name-with-flower">
-            <span class="couple-name">류정원</span>
-            <span class="flower-icon"> | </span>
-            <span class="korean-name">최옥자</span>
+          <div class="name-line">
+            <span class="parent-name">류정원</span>
+            <span class="dot">·</span>
+            <span class="parent-name">최옥자</span>
             <span class="relation">의 딸</span>
-          </div>
-        </div>
-
-        <div class="role-section">
-          <div class="role-label">신부</div>
-          <div class="person-name">
-            류호연 <span class="english-name">HOYEON</span>
+            <span class="person-name">류호연</span>
           </div>
         </div>
       </div>
@@ -49,7 +37,6 @@
         <span class="arrow">→</span>
       </button>
     </div>
-
     <!-- 연락 모달 -->
     <div v-if="showModal" class="modal-overlay" @click="closeModal">
       <div class="modal-content" @click.stop>
@@ -318,17 +305,9 @@ const makeCall = (phoneNumber: string) => {
 }
 
 .person-name {
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: var(--text-color);
   font-weight: 600;
-}
-
-.english-name {
-  font-size: 0.8rem;
-  color: #999;
-  font-weight: 400;
-  letter-spacing: 1px;
-  margin-left: 8px;
 }
 
 .divider-line {
@@ -527,6 +506,29 @@ const makeCall = (phoneNumber: string) => {
 
 .call-btn:hover {
   background-color: #5a7560;
+}
+
+.name-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.parent-name {
+  font-weight: 400;
+}
+
+.dot {
+  color: #999;
+}
+
+.relation {
+  font-size: 0.9rem;
+  color: #666;
 }
 
 @media (max-width: 375px) {
