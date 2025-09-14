@@ -9,7 +9,7 @@
             <span class="dot">·</span>
             <span class="parent-name">권혜숙</span>
             <span class="relation">의 아들</span>
-            <span class="person-name">박준우</span>
+            <span class="person-name">준우</span>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
             <span class="dot">·</span>
             <span class="parent-name">최옥자</span>
             <span class="relation">의 딸</span>
-            <span class="person-name">류호연</span>
+            <span class="person-name">호연</span>
           </div>
         </div>
       </div>
@@ -246,11 +246,8 @@ const makeCall = (phoneNumber: string) => {
 
 .couple-container {
   max-width: 350px;
-  margin: 0 auto 40px;
-  background: white;
+  margin: 1rem;
   border-radius: 20px;
-  padding: 40px 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .couple-section {
