@@ -376,7 +376,7 @@ const makeCall = (phoneNumber: string) => {
   border-radius: 20px;
   width: 100%;
   max-width: 400px;
-  max-height: 80vh;
+  max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -385,12 +385,12 @@ const makeCall = (phoneNumber: string) => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 25px 15px;
+  padding: 1rem;
   border-bottom: 1px solid #eee;
 }
 
 .modal-header h3 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--text-color);
   font-weight: 600;
 }
@@ -398,7 +398,7 @@ const makeCall = (phoneNumber: string) => {
 .close-btn {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #999;
   cursor: pointer;
   padding: 5px;
@@ -415,13 +415,13 @@ const makeCall = (phoneNumber: string) => {
 }
 
 .modal-body {
-  padding: 20px 25px 25px;
+  padding: 1rem;
 }
 
 .tab-buttons {
   display: flex;
   gap: 0;
-  margin-bottom: 25px;
+  margin-bottom: 1rem;
   background-color: #f8f9fa;
   border-radius: 10px;
   padding: 4px;
@@ -448,13 +448,13 @@ const makeCall = (phoneNumber: string) => {
 .contact-group {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
 }
 
 .contact-item {
   background-color: #f8f9fa;
   border-radius: 12px;
-  padding: 20px;
+  padding: 1rem;
   border: 1px solid #e9ecef;
 }
 
@@ -463,7 +463,7 @@ const makeCall = (phoneNumber: string) => {
 }
 
 .contact-name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-color);
 }

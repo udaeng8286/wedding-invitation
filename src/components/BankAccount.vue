@@ -51,8 +51,7 @@
                 <span class="account-role">{{ account.role }}</span>
               </div>
               <div class="account-details">
-                <span class="bank-name">{{ account.bank }}</span>
-                <span class="account-number">{{ account.accountNumber }}</span>
+                <span class="account-number-line">{{ account.bank }} | {{ account.accountNumber }}</span>
               </div>
               <button
                 @click="copyAccountNumber(account.accountNumber)"
@@ -98,8 +97,7 @@
                 <span class="account-role">신부</span>
               </div>
               <div class="account-details">
-                <span class="bank-name">농협</span>
-                <span class="account-number">351-0570-5134-93</span>
+                <span class="account-number-line">농협 | 351-0570-5134-93</span>
               </div>
               <button
                 @click="copyAccountNumber('351-0570-5134-93')"
@@ -283,7 +281,7 @@ const copyAccountNumber = async (accountNumber: string) => {
   border-radius: 20px;
   width: 100%;
   max-width: 400px;
-  max-height: 80vh;
+  max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -358,22 +356,15 @@ const copyAccountNumber = async (accountNumber: string) => {
 }
 
 .account-details {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
   margin-bottom: 15px;
 }
 
-.bank-name {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.account-number {
+.account-number-line {
   font-family: "Courier New", monospace;
   font-size: 1rem;
   color: var(--text-color);
   font-weight: 500;
+  display: inline-block;
 }
 
 .copy-btn {
