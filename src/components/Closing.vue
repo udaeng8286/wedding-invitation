@@ -145,14 +145,16 @@ const shareKakao = () => {
 
   try {
     console.log(window.location.href);
+    const path = window.location.pathname + window.location.search;
     window.Kakao.Share.sendCustom({
       templateId: 122846,
       templateArgs: {
+        PATH: path,
         title: "준우 ♥ 호연 결혼합니다.",
         description:
           "저희 두 사람의 시작을 진심으로 축복해 주시는 모든 분들께 감사드립니다.",
         imageUrl: `${window.location.origin}/images/wedding-main.jpg`,
-        webUrl: window.location.href,
+        // WEB_URL: window.location.href
       },
       installTalk: true,
       success: function (response) {
